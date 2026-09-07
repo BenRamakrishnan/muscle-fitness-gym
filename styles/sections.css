@@ -18,6 +18,65 @@
   transition: background-color var(--duration-normal), border-color var(--duration-normal);
 }
 
+/* Top Utility Bar (Bengaluru Heritage & Direct Action) */
+.top-utility-bar {
+  background: #090B0E;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.35rem 1rem;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.top-utility-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-utility-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.city-name-kannada {
+  color: var(--color-volt);
+  font-weight: 700;
+}
+
+.utility-divider {
+  opacity: 0.5;
+}
+
+.top-utility-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-phone-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.top-phone-link:hover {
+  color: var(--color-volt);
+}
+
+.top-vcard-link {
+  color: var(--color-volt);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -108,6 +167,9 @@
 }
 
 @media (max-width: 768px) {
+  .top-utility-bar {
+    display: none;
+  }
   .header-inner {
     height: 64px;
   }
@@ -136,7 +198,7 @@
 /* Mobile Nav Drawer */
 .mobile-nav-drawer {
   position: fixed;
-  top: 80px;
+  top: 116px;
   left: 0;
   width: 100%;
   background: var(--bg-surface);
@@ -169,10 +231,16 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 130px;
   padding-bottom: var(--space-16);
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 84px;
+  }
 }
 
 .hero-bg {
@@ -306,6 +374,53 @@
 }
 
 /* --------------------------------------------------------------------------
+   Services Section Grid & Cards
+   -------------------------------------------------------------------------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform var(--duration-fast) var(--ease-spring), border-color var(--duration-fast);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+}
+
+.service-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.service-card-title {
+  font-size: var(--text-xl);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.service-card-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+@media (max-width: 540px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Bangalore Studio Hubs Section
    -------------------------------------------------------------------------- */
 .studios-grid {
@@ -435,7 +550,7 @@
 
 .zone-media {
   position: relative;
-  height: 280px;
+  height: clamp(200px, 45vw, 280px);
   overflow: hidden;
 }
 
@@ -694,6 +809,9 @@
   .pricing-grid {
     grid-template-columns: 1fr;
   }
+  .pricing-card.featured {
+    transform: none;
+  }
 }
 
 .pricing-card {
@@ -903,6 +1021,60 @@
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   border: 1px solid var(--border-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   Google Reviews Section Grid & Cards
+   -------------------------------------------------------------------------- */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.review-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.review-card-stars {
+  color: #FBBF24;
+  letter-spacing: 0.1em;
+}
+
+.review-card-text {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-style: italic;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.review-card-author {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.review-card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+@media (max-width: 540px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --------------------------------------------------------------------------
